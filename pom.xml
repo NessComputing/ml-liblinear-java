@@ -4,7 +4,7 @@
     <artifactId>liblinear</artifactId>
     <packaging>jar</packaging>
     <name>liblinear</name>
-    <version>1.92</version>
+    <version>1.93-SNAPSHOT</version>
     <description>Java port of Liblinear</description>
     <url>http://www.bwaldvogel.de/liblinear-java/</url>
 
@@ -41,6 +41,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+		<version>3.0</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -62,6 +63,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+		<version>2.9</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -74,6 +76,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
+		<version>1.0-alpha-4</version>
                 <configuration>
                     <keyname>D2250F35</keyname>
                 </configuration>
@@ -118,10 +121,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+		<version>2.9</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
+		<version>2.1</version>
             </plugin>
         </plugins>
     </reporting>

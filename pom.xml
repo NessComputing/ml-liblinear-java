@@ -16,10 +16,9 @@
     <tag>HEAD</tag>
   </scm>
 
-
   <groupId>ness.external</groupId>
-  <artifactId>libsvm</artifactId>
-  <name>ness-libsvm</name>
+  <artifactId>liblinear-java</artifactId>
+  <name>liblinear-java</name>
   <version>1.93-SNAPSHOT</version>
   <packaging>jar</packaging>
   <description>Fork of liblinear-java from http://www.bwaldvogel.de/liblinear-java</description>

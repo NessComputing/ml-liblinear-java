@@ -2,7 +2,6 @@ package de.bwaldvogel.liblinear;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.Closeable;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -302,13 +301,6 @@ public class Linear {
         finally {
             inputReader.close();
         }
-    }
-
-    static void closeQuietly(Closeable c) {
-        if (c == null) return;
-        try {
-            c.close();
-        } catch (Throwable t) {}
     }
 
     public static double predict(Model model, double[] x) {

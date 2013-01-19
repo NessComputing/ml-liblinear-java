@@ -2,7 +2,6 @@ package de.bwaldvogel.liblinear;
 
 import static de.bwaldvogel.liblinear.Linear.atof;
 import static de.bwaldvogel.liblinear.Linear.atoi;
-import static de.bwaldvogel.liblinear.Linear.closeQuietly;
 import static de.bwaldvogel.liblinear.Linear.info;
 import static de.bwaldvogel.liblinear.Linear.printf;
 
@@ -21,6 +20,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
+
+import com.google.common.io.Closeables;
 
 
 public class Predict {
@@ -190,8 +191,8 @@ public class Predict {
             doPredict(reader, writer, model);
         }
         finally {
-            closeQuietly(reader);
-            closeQuietly(writer);
+            Closeables.closeQuietly(reader);
+            Closeables.closeQuietly(writer);
         }
     }
 }

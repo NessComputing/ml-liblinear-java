@@ -7,7 +7,7 @@ interface Function {
 
     void grad(double[] w, double[] g);
 
-    void Hv(double[] s, double[] Hs);
+    void hv(double[] s, double[] Hs);
 
     int get_nr_variable();
 }

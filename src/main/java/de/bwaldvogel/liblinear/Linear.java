@@ -311,6 +311,11 @@ public class Linear {
         } catch (Throwable t) {}
     }
 
+    public static double predict(Model model, double[] x) {
+        double[] dec_values = new double[model.nr_class];
+        return predictValues(model, x, dec_values);
+    }
+
     public static double predict(Model model, Feature[] x) {
         double[] dec_values = new double[model.nr_class];
         return predictValues(model, x, dec_values);
@@ -346,6 +351,47 @@ public class Linear {
         }
 
         return label;
+    }
+
+    public static double predictValues(Model model, double[] x, double[] dec_values) {
+        int n;
+        if (model.bias >= 0)
+            n = model.nr_feature + 1;
+        else
+            n = model.nr_feature;
+
+        double[] w = model.w;
+
+        int nr_w;
+        if (model.nr_class == 2 && model.solverType != SolverType.MCSVM_CS)
+            nr_w = 1;
+        else
+            nr_w = model.nr_class;
+
+        for (int i = 0; i < nr_w; i++)
+            dec_values[i] = 0;
+
+        for(int idx = 0; idx < x.length; idx++) {
+            // the dimension of testing data may exceed that of training
+            if (idx <= n) {
+                for (int i = 0; i < nr_w; i++) {
+                    dec_values[i] += w[idx * nr_w + i] * x[idx];
+                }
+            }
+        }
+
+        if (model.nr_class == 2) {
+            if (model.solverType.isSupportVectorRegression())
+                return dec_values[0];
+            else
+                return (dec_values[0] > 0) ? model.label[0] : model.label[1];
+        } else {
+            int dec_max_idx = 0;
+            for (int i = 1; i < model.nr_class; i++) {
+                if (dec_values[i] > dec_values[dec_max_idx]) dec_max_idx = i;
+            }
+            return model.label[dec_max_idx];
+        }
     }
 
     public static double predictValues(Model model, Feature[] x, double[] dec_values) {

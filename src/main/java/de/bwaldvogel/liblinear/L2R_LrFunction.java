@@ -84,7 +84,7 @@ class L2R_LrFunction implements Function {
             g[i] = w[i] + g[i];
     }
 
-    public void Hv(double[] s, double[] Hs) {
+    public void hv(double[] s, double[] Hs) {
         int i;
         int l = prob.l;
         int w_size = get_nr_variable();

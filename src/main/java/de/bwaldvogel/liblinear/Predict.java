@@ -3,8 +3,8 @@ package de.bwaldvogel.liblinear;
 import static de.bwaldvogel.liblinear.Linear.atof;
 import static de.bwaldvogel.liblinear.Linear.atoi;
 import static de.bwaldvogel.liblinear.Linear.closeQuietly;
-import static de.bwaldvogel.liblinear.Linear.printf;
 import static de.bwaldvogel.liblinear.Linear.info;
+import static de.bwaldvogel.liblinear.Linear.printf;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -171,7 +171,7 @@ public class Predict {
                     break;
 
                 default:
-                    System.err.printf("unknown option: -%d%n", argv[i - 1].charAt(1));
+                    System.err.printf("unknown option: -%c%n", argv[i - 1].charAt(1));
                     exit_with_help();
                     break;
             }

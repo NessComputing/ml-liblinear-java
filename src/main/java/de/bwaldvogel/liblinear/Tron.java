@@ -137,7 +137,7 @@ class Tron {
         while (true) {
             if (euclideanNorm(r) <= cgtol) break;
             cg_iter++;
-            fun_obj.Hv(d, Hd);
+            fun_obj.hv(d, Hd);
 
             double alpha = rTr / dot(d, Hd);
             daxpy(alpha, d, s);

@@ -5,12 +5,15 @@ import static de.bwaldvogel.liblinear.Linear.atoi;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
+
+import com.google.common.base.Charsets;
 
 
 public class Train {
@@ -91,9 +94,9 @@ public class Train {
             + "   -s 5 and 6%n"
             + "       |f'(w)|_1 <= eps*min(pos,neg)/l*|f'(w0)|_1,%n"
             + "       where f is the primal function (default 0.01)%n"
-            + "   -s 12 and 13\n"
-            + "       |f'(alpha)|_1 <= eps |f'(alpha0)|,\n"
-            + "       where f is the dual function (default 0.1)\n"
+            + "   -s 12 and 13%n"
+            + "       |f'(alpha)|_1 <= eps |f'(alpha0)|,%n"
+            + "       where f is the dual function (default 0.1)%n"
             + "-B bias : if bias >= 0, instance x becomes [x; bias]; if < 0, no bias term added (default -1)%n"
             + "-wi weight: weights adjust the parameter C of different classes (see README for details)%n"
             + "-v n: n-fold cross validation mode%n"
@@ -217,7 +220,8 @@ public class Train {
      * @throws InvalidInputDataException if the input file is not correctly formatted
      */
     public static Problem readProblem(File file, double bias) throws IOException, InvalidInputDataException {
-        BufferedReader fp = new BufferedReader(new FileReader(file));
+        FileInputStream is = new FileInputStream(file);
+        BufferedReader fp = new BufferedReader(new InputStreamReader(is, Charsets.UTF_8));
         List<Double> vy = new ArrayList<Double>();
         List<Feature[]> vx = new ArrayList<Feature[]>();
         int max_index = 0;

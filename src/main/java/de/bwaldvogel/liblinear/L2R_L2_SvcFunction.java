@@ -63,7 +63,7 @@ class L2R_L2_SvcFunction implements Function {
             g[i] = w[i] + 2 * g[i];
     }
 
-    public void Hv(double[] s, double[] Hs) {
+    public void hv(double[] s, double[] Hs) {
         int i;
         int w_size = get_nr_variable();
         double[] wa = new double[sizeI];

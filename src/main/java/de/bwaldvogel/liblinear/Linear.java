@@ -345,6 +345,38 @@ public class Linear {
         return label;
     }
 
+    /**
+     * @throws IllegalArgumentException if model is not probabilistic (see {@link Model#isProbabilityModel()})
+     */
+    public static double predictProbability(Model model, double[] x, double[] prob_estimates) throws IllegalArgumentException {
+        if (!model.isProbabilityModel()) {
+            throw new IllegalArgumentException("probability output is only supported for logistic regression");
+        }
+        int nr_class = model.nr_class;
+        int nr_w;
+        if (nr_class == 2)
+            nr_w = 1;
+        else
+            nr_w = nr_class;
+
+        double label = predictValues(model, x, prob_estimates);
+        for (int i = 0; i < nr_w; i++)
+            prob_estimates[i] = 1 / (1 + Math.exp(-prob_estimates[i]));
+
+        if (nr_class == 2) // for binary classification
+            prob_estimates[1] = 1. - prob_estimates[0];
+        else {
+            double sum = 0;
+            for (int i = 0; i < nr_class; i++)
+                sum += prob_estimates[i];
+
+            for (int i = 0; i < nr_class; i++)
+                prob_estimates[i] = prob_estimates[i] / sum;
+        }
+
+        return label;
+    }
+
     public static double predictValues(Model model, double[] x, double[] dec_values) {
         int n;
         if (model.bias >= 0)

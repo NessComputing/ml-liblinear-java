@@ -1588,7 +1588,7 @@ public class Linear {
             newton_iter++;
             Gmax_old = Gmax_new;
 
-            info("iter %3d  #CD cycles %d%n", newton_iter, iter);
+//            info("iter %3d  #CD cycles %d%n", newton_iter, iter);
         }
 
         info("=========================%n");

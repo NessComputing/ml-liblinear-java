@@ -1,9 +1,6 @@
 package de.bwaldvogel.liblinear;
 
-import static de.bwaldvogel.liblinear.Linear.atof;
-import static de.bwaldvogel.liblinear.Linear.atoi;
-import static de.bwaldvogel.liblinear.Linear.info;
-import static de.bwaldvogel.liblinear.Linear.printf;
+import static de.bwaldvogel.liblinear.Linear.*;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,7 +20,7 @@ import java.util.regex.Pattern;
 
 import com.google.common.io.Closeables;
 
-
+@SuppressWarnings("PMD.SystemPrintln")
 public class Predict {
 
     private static boolean       flag_predict_probability = false;

@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
 
 import com.google.common.base.Charsets;
 
-
+@SuppressWarnings("PMD.SystemPrintln")
 public class Train {
 
     public static void main(String[] args) throws IOException, InvalidInputDataException {

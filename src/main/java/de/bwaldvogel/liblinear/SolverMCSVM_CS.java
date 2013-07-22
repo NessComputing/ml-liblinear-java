@@ -1,8 +1,6 @@
 package de.bwaldvogel.liblinear;
 
-import static de.bwaldvogel.liblinear.Linear.copyOf;
-import static de.bwaldvogel.liblinear.Linear.info;
-import static de.bwaldvogel.liblinear.Linear.swap;
+import static de.bwaldvogel.liblinear.Linear.*;
 
 
 /**
@@ -28,6 +26,7 @@ import static de.bwaldvogel.liblinear.Linear.swap;
  * See Appendix of LIBLINEAR paper, Fan et al. (2008)
  * </pre>
  */
+@SuppressWarnings("PMD.CollapsibleIfStatements")
 class SolverMCSVM_CS {
 
     private final double[] B;

@@ -13,13 +13,13 @@
     <connection>scm:git:git://github.com/NessComputing/ml-liblinear-java.git</connection>
     <developerConnection>scm:git:git@github.com:NessComputing/ml-liblinear-java.git</developerConnection>
     <url>http://github.com/NessComputing/ml-liblinear-java</url>
-    <tag>liblinear-java-1.93</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <groupId>ness.external</groupId>
   <artifactId>liblinear-java</artifactId>
   <name>liblinear-java</name>
-  <version>1.93</version>
+  <version>1.94-SNAPSHOT</version>
   <packaging>jar</packaging>
   <description>Fork of liblinear-java from http://www.bwaldvogel.de/liblinear-java</description>
 

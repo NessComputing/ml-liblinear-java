@@ -10,9 +10,9 @@
   </parent>
 
   <scm>
-    <connection>scm:git:git://github.com/NessComputing/liblinear-java.git</connection>
-    <developerConnection>scm:git:git@github.com:NessComputing/liblinear-java.git</developerConnection>
-    <url>http://github.com/NessComputing/liblinear-java</url>
+    <connection>scm:git:git://github.com/NessComputing/ml-liblinear-java.git</connection>
+    <developerConnection>scm:git:git@github.com:NessComputing/ml-liblinear-java.git</developerConnection>
+    <url>http://github.com/NessComputing/ml-liblinear-java</url>
     <tag>HEAD</tag>
   </scm>
 
